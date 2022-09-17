@@ -1,0 +1,17 @@
+{
+  "groups": [
+    {
+      "name": "cloud.aws.s3",
+      "type": "hackathon.nomadworker.external.dto.component.S3Component",
+      "sourceType": "hackathon.nomadworker.external.dto.component.S3Component"
+    }
+  ],
+  "properties": [
+    {
+      "name": "cloud.aws.s3.bucket",
+      "type": "java.lang.String",
+      "sourceType": "hackathon.nomadworker.external.dto.component.S3Component"
+    }
+  ],
+  "hints": []
+}

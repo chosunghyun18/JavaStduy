@@ -1,0 +1,50 @@
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/nomadtestdb?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    username: root
+    password: kris2486!
+
+#    url: jdbc:mysql://nomadworker.cl8zlarfimpv.ap-northeast-2.rds.amazonaws.com:3306/nomad_worker?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+#    username: admin
+#    password: nomadworker
+
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: we.nomadworker@gmail.com
+    password: nsrkmrijbegtzeeq
+    properties:
+      mail:
+        debug: false
+#        debug: false
+        smtp:
+          auth: true
+          starttls:
+            enable:  true
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+#      ddl-auto: update
+    properties:
+      hibernate:
+        #show_sql: true
+        format_sql: true
+        default_batch_fetch_size: 100
+        dialect: org.hibernate.spatial.dialect.mysql.MySQL8SpatialDialect
+    database-platform: org.hibernate.spatial.dialect.mysql.MySQL8SpatialDialect
+    database: mysql
+
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  profiles:
+    include:
+      - aws
+      - credentials
+logging:
+  level:
+    org.hibernate.SQL: debug
+
