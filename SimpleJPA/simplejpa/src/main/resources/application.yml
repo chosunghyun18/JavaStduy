@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/[]?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
-    username: []
-    password: []
+    url: jdbc:mysql://127.0.0.1:3306/jpaex?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    username: root
+    password: kris2486!
 
     #    url: jdbc:mysql://ccr.cl8zlarfimpv.ap-northeast-2.rds.amazonaws.com:3306/ccr?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
     #    username:
