@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
+import java.util.List;
 
 @Repository
 @RequiredArgsConstructor
@@ -22,6 +23,24 @@ public class MemberRepository {
         em.persist(member);
     }
 
+    public void delete(Long id)
+    {
+        Member member = em.find(Member.class , id);
+        em.remove(member);
+    }
 
+    /**
+     * @id   //  pk of Membertable
+     * @return  // instance of Member
+     **/
+    public Member findOne(Long id)
+    {
+        return em.find(Member.class,id);
+    }
+
+    public List<Member> findALL()
+    {
+        return em.createQuery("select m from Member m",Member.class).getResultList();
+    }
 
 }
