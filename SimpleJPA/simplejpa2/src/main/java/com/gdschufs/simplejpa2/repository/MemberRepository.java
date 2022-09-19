@@ -20,7 +20,7 @@ public class MemberRepository {
 
     public void delete(Long id)
     {
-        Member member = em.find(Member.class , id);
+        Member member = em.find(Member.class,id);
         em.remove(member);
     }
 
