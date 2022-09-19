@@ -26,7 +26,7 @@ public class MemberApiController {
 
         Member member = new Member();
         member.setM_name(form.getM_name());
-        member.setAddress(address);
+        member.setM_address(address);
         memberService.join(member);
 
         MemberPostResponse memberPostResponse = new MemberPostResponse(member);
@@ -35,7 +35,7 @@ public class MemberApiController {
     @GetMapping(value="/api/members" , produces = "application/json;charset=UTF-8")
     public MemberResultResponse membersGet() {
         List<Member> findMembers = memberService.findMembers();
-        List<MemberDto> collect = findMembers.stream().map(m -> new MemberDto(m,m.getAddress())).collect(Collectors.toList());
+        List<MemberDto> collect = findMembers.stream().map(m -> new MemberDto(m,m.getM_address())).collect(Collectors.toList());
         return new MemberResultResponse("this is my first spring",200,collect);
     }
 }

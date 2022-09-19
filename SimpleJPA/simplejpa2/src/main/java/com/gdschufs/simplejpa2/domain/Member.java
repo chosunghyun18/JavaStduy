@@ -21,7 +21,7 @@ public class Member {
     private String m_email;
 
     @Embedded
-    private Address address;
+    private Address m_address;
 
     @JsonIgnore
     @OneToMany(mappedBy = "member")
