@@ -1,14 +1,11 @@
-package com.gdschufs.simplejpa.api;
+package com.gdschufs.simplejpa2.api;
 
-import static com.gdschufs.simplejpa.dto.MemberDto.*;
-import com.gdschufs.simplejpa.service.MemberService;
+import com.gdschufs.simplejpa2.dto.MemberDto.* ;
+import com.gdschufs.simplejpa2.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
-
-
 @RequiredArgsConstructor
 @RestController
 public class MemberApiController {

@@ -1,6 +1,5 @@
-package com.gdschufs.simplejpa.service;
+package com.gdschufs.simplejpa2.service;
 
-import com.gdschufs.simplejpa.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

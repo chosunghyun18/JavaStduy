@@ -1,4 +1,4 @@
-package com.gdschufs.simplejpa.repository;
+package com.gdschufs.simplejpa2.repository;
 
 import org.springframework.stereotype.Repository;
 

@@ -1,4 +1,4 @@
-package com.gdschufs.simplejpa.domain;
+package com.gdschufs.simplejpa2.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
