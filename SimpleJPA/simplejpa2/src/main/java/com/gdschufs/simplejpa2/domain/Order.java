@@ -33,6 +33,7 @@ public class Order
     private Delivery delivery;
 
     private LocalDateTime orderDate; //주문시간
+    private String o_name; // 주문 상품이름 ex 민트초코
 
     @Enumerated(EnumType.STRING)
     private OrderStatus status; //주문상태 [ORDER, CANCEL]
@@ -52,11 +53,12 @@ public class Order
 
     //==생성 메서드==//  Domain Model  pattern : https://blog.naver.com/PostView.nhn?blogId=good_ray&logNo=222267722516
 
-    public static Order createOrder(Member member, Delivery delivery) //*, OrderItem... orderItems*// )
+    public static Order createOrder(Member member, Delivery delivery,String o_name) //*, OrderItem... orderItems*// )
     {
         Order order = new Order();
         order.setMember(member);
         order.setDelivery(delivery);
+        order.setO_name(o_name);
 //        for (OrderItem orderItem : orderItems) {
 //            order.addOrderItem(orderItem);
 //        }
@@ -66,7 +68,13 @@ public class Order
     }
 
     //==비즈니스 로직==//
-
+    public void cancel() {
+        if (delivery.getStatus() == DeliveryStatus.COMP) {
+            throw new IllegalStateException("이미 배송완료된 상품은 취소가 불가능합니다.");
+        }
+        // 취소
+        this.setStatus(OrderStatus.CANCEL);
+    }
 
 
 }
