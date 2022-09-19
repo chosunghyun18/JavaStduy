@@ -24,7 +24,7 @@ public class Member {
     private Address m_address;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "member")
+    @OneToMany(mappedBy = "member",cascade = CascadeType.ALL)
     private List<Order> orders = new ArrayList<>();
 
 
