@@ -1,4 +1,4 @@
-package com.gdschufs.simplejpa.dto;
+package com.gdschufs.simplejpa2.dto;
 
 
 import lombok.AllArgsConstructor;

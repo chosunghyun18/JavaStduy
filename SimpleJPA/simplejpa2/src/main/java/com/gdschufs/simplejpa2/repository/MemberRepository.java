@@ -1,6 +1,6 @@
-package com.gdschufs.simplejpa.repository;
+package com.gdschufs.simplejpa2.repository;
 
-import com.gdschufs.simplejpa.domain.Member;
+import com.gdschufs.simplejpa2.domain.Member;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;

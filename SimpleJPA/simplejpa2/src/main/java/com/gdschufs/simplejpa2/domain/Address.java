@@ -1,11 +1,10 @@
-package com.gdschufs.simplejpa.domain;
+package com.gdschufs.simplejpa2.domain;
 
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 import javax.persistence.Embeddable;
-import javax.persistence.Embedded;
 
 @Embeddable // for embedded
 @Getter
