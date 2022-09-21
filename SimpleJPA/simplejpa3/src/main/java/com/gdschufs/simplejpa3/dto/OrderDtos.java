@@ -16,7 +16,7 @@ public class OrderDtos {
     public static class OrderPostRequest
     {
         private Long memberId;
-        private String o_name; // 주문상품이름
+        private Long itemId; // 주문 아이디
         private int count ;
 
     }

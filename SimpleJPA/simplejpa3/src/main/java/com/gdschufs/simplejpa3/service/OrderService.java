@@ -1,11 +1,9 @@
 package com.gdschufs.simplejpa3.service;
 
-import com.gdschufs.simplejpa3.domain.Order;
+import com.gdschufs.simplejpa3.domain.*;
 
-import com.gdschufs.simplejpa3.domain.Delivery;
-import com.gdschufs.simplejpa3.domain.DeliveryStatus;
-import com.gdschufs.simplejpa3.domain.Member;
-
+import com.gdschufs.simplejpa3.domain.item.Item;
+import com.gdschufs.simplejpa3.repository.ItemRepository;
 import com.gdschufs.simplejpa3.repository.MemberRepository;
 import com.gdschufs.simplejpa3.repository.OrderRepository;
 import lombok.RequiredArgsConstructor;
@@ -20,29 +18,33 @@ public class OrderService {
 
     private final OrderRepository orderRepository;
     private final MemberRepository memberRepository ;
-//    private final ItemRepository itemRepository;
+    private final ItemRepository itemRepository;
 
 
     /**
-     * 주문
+     *
+     * @param memberId
+     * @param itemId
+     * @param count
+     * @return order Id longtype
      */
     @Transactional
-    public Long order(Long memberId,String o_name ,int count) {
-
+    public Long order(Long memberId,Long itemId, int count)
+    {
         //엔티티 조회
         Member member = memberRepository.findOne(memberId);
-//        Item item = itemRepository.findOne(itemId);
+        Item item = itemRepository.findOne(itemId);
 
         //배송정보 생성
         Delivery delivery = new Delivery();
         delivery.setD_address(member.getM_address());
         delivery.setStatus(DeliveryStatus.READY);
         //주문상품 생성
-//        OrderItem orderItem = OrderItem.createOrderItem(item, item.getPrice(), count);
+        OrderItem orderItem = OrderItem.createOrderItem(item, item.getPrice(), count);
 
         //주문 생성
-//        Order order = Order.createOrder(member, delivery, orderItem);
-        Order order = Order.createOrder(member, delivery,o_name);
+        Order order = Order.createOrder(member, delivery,orderItem);
+
         //주문 저장
         orderRepository.save(order);
 
@@ -61,11 +63,14 @@ public class OrderService {
     }
 
 
-    public List<Order> findOrderByName(String memberName)
+    public List<Order> findOrdersByName(String memberName)
     {
-        return orderRepository.findOrderByName(memberName);
+        return orderRepository.findOrdersByName(memberName);
     }
 
-
+    public List<Order> findOrdersByCriteria(String memberName)
+    {
+        return  orderRepository.findAllByCriteria(memberName);
+    }
 
 }

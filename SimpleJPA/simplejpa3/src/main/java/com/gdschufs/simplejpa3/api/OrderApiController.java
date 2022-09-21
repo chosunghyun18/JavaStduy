@@ -23,7 +23,7 @@ public class OrderApiController {
     public ResultResponseMessage order(@RequestBody OrderPostRequest request)
     {
         if(memberService.findOne(request.getMemberId()) != null){
-            orderService.order(request.getMemberId(),request.getO_name(),request.getCount());
+            orderService.order(request.getMemberId(), request.getItemId(), request.getCount());
             return new ResultResponseMessage("post Complete", 200);
         }
         else {
@@ -34,15 +34,22 @@ public class OrderApiController {
     @GetMapping(value="/api/orders" , produces = "application/json;charset=UTF-8")
     public ResultResponseData orderList(@RequestBody OrderGetRequest request)
     {
-        List<Order> orders = orderService.findOrderByName(request.getM_name());
+        List<Order> orders = orderService.findOrdersByName(request.getM_name());
         return  new ResultResponseData("this is results", 200 ,orders);
     }
 
-//    @PostMapping("/orders/{orderId}/cancel")
-//    public ResultResponseMessage cancelOrder(@PathVariable("orderId") Long orderId) {
-//        orderService.cancelOrder(orderId);
-//        return  new ResultResponseMessage("Post Complete cancel order" , 200 );
-//    }
+    /**
+     * v2 get orders by name
+     * @param request name
+     * @return
+     */
+    @GetMapping(value="/api/orders/v2" , produces = "application/json;charset=UTF-8")
+    public ResultResponseData orderListByCreteria(@RequestBody OrderGetRequest request)
+    {
+        List<Order> orders = orderService.findOrdersByCriteria(request.getM_name());
+        return  new ResultResponseData("this is results", 200 ,orders);
+    }
+
     @PostMapping("/orders/cancel")
     public ResultResponseMessage cancelOrder(@RequestParam("orderId") Long orderId)
     {
