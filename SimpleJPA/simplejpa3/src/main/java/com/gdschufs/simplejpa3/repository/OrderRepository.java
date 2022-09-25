@@ -37,9 +37,7 @@ public class OrderRepository
     }
 
     /**
-     *
-     * @param m_name : 일부만 일치해도 검색 가능
-     * @return maxResults = 5
+     * JPQL
      */
     //search All Order by member name V2
     public List<Order> findOrdersByName(String m_name)
