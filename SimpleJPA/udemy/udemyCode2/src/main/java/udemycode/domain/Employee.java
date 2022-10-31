@@ -8,7 +8,7 @@ public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id") //pk
-    private long id;
+    private int id;
 
     @Column(name = "first_name")
     private String firstName;
@@ -32,9 +32,8 @@ public class Employee {
     }
     // define getter/setter
 
-    public int getId(int id) {
-        this.id = id ;
-        return id;
+    public int getId() {
+        return  id;
     }
 
     public void setId(int id) {
