@@ -32,7 +32,8 @@ public class Employee {
     }
     // define getter/setter
 
-    public int getId() {
+    public int getId(int id) {
+        this.id = id ;
         return id;
     }
 
