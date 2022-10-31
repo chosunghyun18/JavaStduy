@@ -1,44 +1,49 @@
 package udemycode.service;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import udemycode.dao.EmployeeDAO;
+import udemycode.dao.EmployeeRepository;
 import udemycode.domain.Employee;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class EmployeeServiceImpl implements EmployeeService{
-    private EmployeeDAO employeeDAO;
 
-    @Autowired
-    public EmployeeServiceImpl( @Qualifier ("employeeDAOJpaImpl")EmployeeDAO theEmployeeDAO) {
-        employeeDAO = theEmployeeDAO;
-    }
+    private final EmployeeRepository employeeRepository;
 
     @Override
-    @Transactional(readOnly = true)
     public List<Employee> findAll() {
-        return employeeDAO.findAll();
+        return employeeRepository.findAll();
     }
-
+    // remove @transactional cause JPARepository provide it
     @Override
-    @Transactional(readOnly = true)
     public Employee findById(int theId) {
-        return employeeDAO.findById(theId);
+        // Optional for null check
+        Optional<Employee> result = employeeRepository.findById(theId);
+
+        Employee employee = null;
+
+        if(result.isPresent()){
+            employee = result.get();
+        }else {throw new RuntimeException("Did not find employee id"+theId);}
+
+        return employee;
     }
 
     @Override
-    @Transactional
     public void save(Employee theEmployee) {
-        employeeDAO.save(theEmployee);
+        employeeRepository.save(theEmployee);
     }
 
     @Override
-    @Transactional
     public void deleteById(int theId) {
-        employeeDAO.deleteById(theId);
+        employeeRepository.deleteById(theId);
     }
 }
