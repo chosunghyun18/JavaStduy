@@ -54,7 +54,7 @@ public class OrderApiController {
     public ResultResponseMessage cancelOrder(@RequestParam("orderId") Long orderId)
     {
         orderService.cancelOrder(orderId);
-        return  new ResultResponseMessage(" Cancel Order" , 200 );
+        return  new ResultResponseMessage("Cancel Order" , 200 );
     }
 
 
