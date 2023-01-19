@@ -7,12 +7,15 @@ import javax.persistence.EntityManager;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Commit;
 import org.springframework.transaction.annotation.Transactional;
 import study.querydsl.domain.helloworld.model.Hello;
 import study.querydsl.domain.helloworld.model.QHello;
 
-@Transactional
+
 @SpringBootTest
+@Transactional
+@Commit // commit 이 없이 transactional 만 있으면 rollbaack 됨
 class QuerydslApplicationTests {
 
 	@Autowired
@@ -38,4 +41,5 @@ class QuerydslApplicationTests {
 		assertThat(result.getId()).isEqualTo(hello.getId());
 
 	}
+
 }
