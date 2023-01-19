@@ -1,4 +1,4 @@
-package study.querydsl.domain.helloworld.controller;
+package study.querydsl.domain.helloworld.api;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
