@@ -1,4 +1,8 @@
 spring:
+  data:
+    rest:
+      base-path: /api/v1
+
   datasource:
     url: jdbc:mysql://127.0.0.1:3306/employee_directory?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
     username: root
@@ -29,7 +33,6 @@ spring:
   mvc:
     path match:
       matching-strategy: ant_path_matcher
-
 
 logging:
   level:

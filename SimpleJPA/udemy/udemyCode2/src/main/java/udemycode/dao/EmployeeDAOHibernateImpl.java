@@ -1,27 +1,24 @@
 package udemycode.dao;
 
+import lombok.RequiredArgsConstructor;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
+
 import udemycode.domain.Employee;
 
 import javax.persistence.EntityManager;
 import java.util.List;
 
 @Repository
+@RequiredArgsConstructor
 public class EmployeeDAOHibernateImpl implements EmployeeDAO{
-
-
-    //define field of entitManagere
-    private EntityManager em;
-
-    //set up constructor injection
     @Autowired
-    public EmployeeDAOHibernateImpl(EntityManager theEntityM){
-        em = theEntityM;
-    }
+    private final EntityManager em;
+
+
+
 
     @Override // no transactional to handle in service
     public List<Employee> findAll() {
