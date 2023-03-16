@@ -4,7 +4,10 @@ import gnuvil.simplejpa5.cms.domain.Member;
 import java.util.List;
 import java.util.Optional;
 import java.util.*;
-
+/*
+This Repo implements is for case of no database yet
+- >  동시성 문제를 항상 고민하자 , ConcurrentHashMap, AtomicLong
+ */
 public class MemoryMemberRepository implements MemberRepository{
 
     private static Map<Long, Member> store = new HashMap<>();
