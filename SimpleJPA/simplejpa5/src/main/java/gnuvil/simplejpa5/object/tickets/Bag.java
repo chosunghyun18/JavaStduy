@@ -2,7 +2,7 @@ package gnuvil.simplejpa5.object.tickets;
 
 public class Bag {
     private Long amount;
-    private Invitation invitation;
+    private final Invitation invitation;
     private Ticket ticket;
 
     public Bag(long amount){
@@ -12,7 +12,9 @@ public class Bag {
         this.invitation = invitation;
         this.amount = amount;
     }
-
+    public boolean hasInvitation(){
+        return invitation != null ;
+    }
     public boolean haTicket(){
         return ticket != null;
     }
