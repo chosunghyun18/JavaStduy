@@ -1,4 +1,4 @@
-package study.core.member;
+package study.core;
 
 
 import study.core.member.model.Grade;

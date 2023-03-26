@@ -54,4 +54,9 @@ public class Order {
                 ", discountPrice=" + discountPrice +
                 '}';
     }
+    /// BL
+    public int calculatePrice(){
+        return itemPrice - discountPrice;
+    }
+
 }
