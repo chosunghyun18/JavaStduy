@@ -1,8 +1,8 @@
 package study.core.member.service;
 
-import study.core.member.repository.MemoryMemberRepository;
 import study.core.member.model.Member;
 import study.core.member.repository.MemberRepository;
+import study.core.member.repository.MemoryMemberRepository;
 
 public class MemberServiceImpl implements MemberService {
 

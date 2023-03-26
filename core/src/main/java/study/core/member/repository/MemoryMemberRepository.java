@@ -2,7 +2,6 @@ package study.core.member.repository;
 
 import java.util.concurrent.ConcurrentHashMap;
 import study.core.member.model.Member;
-import study.core.member.repository.MemberRepository;
 
 public class MemoryMemberRepository implements MemberRepository {
 
