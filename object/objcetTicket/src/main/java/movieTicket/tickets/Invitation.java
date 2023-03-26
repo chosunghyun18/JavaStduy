@@ -1,4 +1,4 @@
-package gnuvil.simplejpa5.object.tickets;
+package movieTicket.tickets;
 
 import java.time.LocalDateTime;
 

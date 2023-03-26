@@ -1,4 +1,4 @@
-package gnuvil.simplejpa5.object.tickets;
+package movieTicket.tickets;
 
 public class TicketSeller {
     private TicketOffice ticketOffice ;
