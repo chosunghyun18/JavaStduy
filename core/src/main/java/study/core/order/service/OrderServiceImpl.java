@@ -1,16 +1,18 @@
 package study.core.order.service;
 
 import study.core.discount.DiscountPolicy;
-import study.core.discount.FixDiscountPolicy;
 import study.core.member.model.Member;
 import study.core.member.repository.MemberRepository;
-import study.core.member.repository.MemoryMemberRepository;
 import study.core.order.model.Order;
 
 public class OrderServiceImpl implements OrderService{
 
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
-    private final DiscountPolicy discountPolicy = new FixDiscountPolicy();
+    private final MemberRepository memberRepository ;
+    private final DiscountPolicy discountPolicy;
+       public OrderServiceImpl( MemberRepository memberRepository,DiscountPolicy discountPolicy){
+           this.memberRepository = memberRepository;
+           this.discountPolicy = discountPolicy;
+    }
 
     @Override
     public Order creteOrder(Long memberId, String itemName, int itemPrice) {

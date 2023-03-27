@@ -1,7 +1,9 @@
 package study.core.order.service;
 
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import study.core.AppConfig;
 import study.core.member.model.Grade;
 import study.core.member.model.Member;
 import study.core.member.service.MemberService;
@@ -10,8 +12,15 @@ import study.core.order.model.Order;
 
 public class OrderServiceTest {
 
-    MemberService memberService = new MemberServiceImpl();
-    OrderService orderService = new OrderServiceImpl();
+    MemberService memberService ;
+    OrderService orderService ;
+
+    @BeforeEach
+    public void beforeEach(){
+        AppConfig appConfig = new AppConfig();
+        memberService = appConfig.memberService();
+        orderService = appConfig.orderService();
+    }
 
     @Test
     void createOrder(){
