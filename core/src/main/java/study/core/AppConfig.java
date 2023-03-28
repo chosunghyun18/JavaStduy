@@ -12,7 +12,7 @@ import study.core.member.service.MemberServiceImpl;
 import study.core.order.service.OrderService;
 import study.core.order.service.OrderServiceImpl;
 
-@Configuration
+@Configuration  //Spring 컨테이너에 Bean 이라고 적혀있는 매서드를 등록한다 .
 public class AppConfig {
     @Bean
     public MemberService memberService(){
