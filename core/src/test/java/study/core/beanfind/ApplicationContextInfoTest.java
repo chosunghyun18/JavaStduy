@@ -21,7 +21,7 @@ public class ApplicationContextInfoTest {
     @Test
     @DisplayName("show all bean")
     void findAllBean(){
-        String[] beanDefinitionNames = ac.getBeanDefinitionNames();
+        String[] beanDefinitionNames = ac.getBeanDefinitionNames(); // 스프링에 등록된 모든 빈 이름을 조회한다.
         for(String beanDefinitionName:beanDefinitionNames){
             Object bean = ac.getBean(beanDefinitionName);
 
