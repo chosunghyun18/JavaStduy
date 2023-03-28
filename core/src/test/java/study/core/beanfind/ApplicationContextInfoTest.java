@@ -25,7 +25,7 @@ public class ApplicationContextInfoTest {
             Object bean = ac.getBean(beanDefinitionName);
 
             assertNotNull(bean);
-
+            System.out.println("bean : "+bean + "BeandName: "+beanDefinitionName);
             // Assert that the name of the bean matches the bean definition name
             assertTrue(ac.getBean(beanDefinitionName) == bean);
 
