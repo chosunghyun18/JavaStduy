@@ -1,5 +1,7 @@
 package study.core;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import study.core.member.model.Grade;
 import study.core.member.model.Member;
 import study.core.member.service.MemberService;
@@ -10,17 +12,16 @@ import study.core.order.service.OrderServiceImpl;
 
 public class OrderApp {
     public static void main(String[] args) {
-        AppConfig appConfig = new AppConfig();
-
-        MemberService memberService = appConfig.memberService();
-        OrderService orderService = appConfig.orderService();
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
+        MemberService memberService = applicationContext.getBean("memberService",MemberService.class);
+        OrderService orderService = applicationContext.getBean("orderService",OrderService.class);
 
         Long memberId = 1L;
 
-        Member member = new Member(1L, "memberA", Grade.VIP);
+        Member member = new Member(memberId, "memberA", Grade.VIP);
         memberService.join(member);
 
-        Order order = orderService.creteOrder(1L,"ItemA",1000000);
+        Order order = orderService.creteOrder(memberId,"ItemA",1000000);
 
         System.out.println("order = "+order); //order.toSting();과 동일
         System.out.println("order calculate Price = "+order.calculatePrice());
