@@ -1,6 +1,6 @@
-package gnuvil.simplejpa5.cms.repository;
+package gnuvil.cms.repository;
 
-import gnuvil.simplejpa5.cms.domain.Member;
+import gnuvil.cms.domain.Member;
 import java.util.List;
 import java.util.Optional;
 import java.util.*;

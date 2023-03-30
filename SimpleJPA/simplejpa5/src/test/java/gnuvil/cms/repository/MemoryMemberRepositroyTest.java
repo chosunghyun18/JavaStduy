@@ -1,9 +1,9 @@
-package gnuvil.simplejpa5.cms.repository;
+package gnuvil.cms.repository;
 
 import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
-import gnuvil.simplejpa5.cms.domain.Member;
+import gnuvil.cms.domain.Member;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;

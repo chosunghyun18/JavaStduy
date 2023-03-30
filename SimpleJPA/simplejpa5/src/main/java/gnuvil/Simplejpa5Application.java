@@ -1,4 +1,4 @@
-package gnuvil.simplejpa5;
+package gnuvil;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

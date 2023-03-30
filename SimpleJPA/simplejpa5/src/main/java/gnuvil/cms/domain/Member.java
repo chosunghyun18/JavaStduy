@@ -1,4 +1,4 @@
-package gnuvil.simplejpa5.cms.domain;
+package gnuvil.cms.domain;
 
 import lombok.Getter;
 
